@@ -1,7 +1,10 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from sqlalchemy import text
 
 from db import engine
+from models import Base
+
+Base.metadata.create_all(engine)
 
 app = FastAPI()
 
@@ -12,10 +15,7 @@ def health_check():
 
 
 @app.get("/health/db")
-def health_check_db():
-    try:
-        with engine.connect() as conn:
-            conn.execute(text("SELECT 1"))
-    except Exception:
-        raise HTTPException(status_code=503, detail="Database unavailable")
+def health_db():
+    with engine.connect() as conn:
+        conn.execute(text("SELECT 1"))
     return {"db": "ok"}
