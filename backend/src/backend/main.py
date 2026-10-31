@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from sqlalchemy import text
 
+import ai_routes
 import auth
 import export_routes
 import match_routes
@@ -15,6 +16,7 @@ app = FastAPI()
 app.include_router(auth.router)
 app.include_router(resume_routes.router)
 app.include_router(match_routes.router)
+app.include_router(ai_routes.router)
 app.include_router(export_routes.router)
 
 

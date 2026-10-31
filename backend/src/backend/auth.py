@@ -4,7 +4,7 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
-from db import get_db
+from backend.db import get_db
 from models import User
 from schemas import LoginRequest, SignupRequest, TokenResponse, UserResponse
 from security import (

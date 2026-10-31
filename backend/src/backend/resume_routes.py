@@ -3,9 +3,9 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
-from auth import get_current_user
-from db import get_db
-from models import Resume, User
+from backend.auth import get_current_user
+from backend.db import get_db
+from backend.models import Resume, User
 from resume_schemas import ResumeData
 
 router = APIRouter(prefix="/resume", tags=["resume"])

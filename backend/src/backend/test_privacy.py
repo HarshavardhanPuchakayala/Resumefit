@@ -1,6 +1,6 @@
 import json
 
-from privacy import PrivacyError, build_ai_view
+from backend.privacy import PrivacyError, build_ai_view
 
 contact = {
     "full_name": "Anil Varma",
